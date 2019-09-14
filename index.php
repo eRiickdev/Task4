@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Elo's Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Eloo.css">
+    </head>
+    <body>
+            <h1>Elo Rahamat AGBAWE</h1>
+            <div class="ol">32,Alhaji Yekini Bakare Street,Lekki County Homes,Lekki</div>
+            <div class="ol">+23408064250498 eloagbawe@gmail.com</div>
+            <br>
+            <article class="left">    
+                <img src="https://res.cloudinary.com/dvwzpxo5i/image/upload/v1566498368/Passport_s0nr9s.jpg" alt="Elo Agbawe's Picture" width="200" height="200">
+                <h3>&nbsp;PERSONAL DATA</h3>
+                <p>Sex:Female</p>
+                <p>Date of Birth:14/10/1995</p>
+                <p>Marital status:single</p><br>
+                <h3>&nbsp;BRIEF BIO</h3>
+                <p class="justify">I am an optimistic and goal-oriented Doctor of Optometry graduate (O.D) seeking new&nbsp;&nbsp; opportunities to help develop and gain further skills. I am an effective team member who&nbsp;&nbsp; has the ability to complete administrative tasks with little or no supervision and ensure&nbsp;&nbsp; that the highest standards of office organization are maintained at all times.</p><br>
+                <h3>&nbsp;EDUCATION</h3>
+                <p>University of Benin, Benin City, Edo State, Nigeria (November 2011 to October 2017).</p>
+                <p><strong>Doctor of Optometry (O.D).</strong></p>
+                <p class="justify">Federal Government College, Ogunu, Warri, Delta State, Nigeria (September 2005 to&nbsp;&nbsp; August 2011).</p>
+                <p><strong>West African Senior School Certificate (WASSCE).</strong></p><br>
+                <h3>&nbsp;SKILLS</h3>
+                <p class="justify">Microsoft Office, HTML(beginner),CSS(beginner),Customer service, Verbal and written&nbsp;&nbsp; communication.</p><br> 
+                <div class="form">
+                    <form action="" method="post" onsubmit="return validateForm()">
+                    <h3>&nbsp; CONTACT ME</h3>
+                    <div>
+                        <input  list="title" class="input-field" name="title" placeholder="Title"/>
+                        <datalist>
+                            <option value="Ms.">
+                            <option value="Mrs">
+                            <option value="Mr">
+                            <option value="Miss">
+                            </datalist>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="text" class="input-field" id="name" name="name" placeholder="Name"/>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="email" name="email" class="input-field" id="email" placeholder="Email Address"/>
+                    </div>
+                    <br>
+                    <div>
+                        <textarea type="text" name="message" class="input field" id="message" placeholder=" Write a Message"></textarea>
+                    </div>
+                    <br>
+                        <button class="button" id="button" type="submit" >Send Message</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>     
+            </article>
+            <article class="right">
+                <h3>&nbsp;PROFESSIONAL EXPERIENCE</h3>
+                <p><b>NYSC</b>- November 2018 to present</p> 
+                <p>TruVision Eye Care Centre,84, Ozumba Mbadiwe Avenue, Victoria Island Lagos.</p>
+                <p class="justify">Corper Optometrist responsible for eye examinations, diagnosis, treatment and counseling of patients. Also assisted front desk officers to market frames and lenses to patients as well as other administrative duties.</p>
+                <p><b>INTERNSHIP</b>-December 2017 to November 2018</p>
+                <p>TruVision Eye Care Centre, 84, Ozumba Mbadiwe Avenue, Victoria Island Lagos.</p>
+                <p class="justify">Optometry Intern responsible for eye examinations, diagnosis, treatment and counseling of patients.</p>
+                <p><b>INDUSTRIAL TRAINING III (Externship)</b>-November 2016 to March 2017</p>
+                <p>Eye Clinic, Faith Mediplex Hospital 1, Giwa Amu off Airport Road, Benin-city, Edo state.</p>
+                <p class="justify">Assistant to supervisor optometrist, observing eye examinations, diagnosis, treatment, counseling of patients with an increased knowledge in the use of basic optometric instruments.</p>
+                <p><b>INDUSTRIAL TRAINING II (Solo)</b>-August 2016 to October 2016</p>
+                <p>Eye Clinic, Braithwaite Memorial Specialist Hospital, 5-8 Harley Street, Old GRA, Port-Harcourt, Rivers State.</p>
+                <p class="justify">Assistant to supervisor optometrist, observing eye examinations, diagnosis, treatment, counseling of patients with an increased knowledge in the use of basic optometric instruments.</p>
+                <p><b>INDUSTRIAL TRAINING I (Glazing)</b>-October 2015 to November 2015</p>
+                <p>Eye Clinic, Central Hospital Warri, 1, Mabiaku Road,Warri, Delta State.</p>
+                <p class="justify">Assistant to supervising optician, observing the cutting of lens, glazing of lens, polishing of lens and repair of frame.</p><br>
+                <h3>&nbsp;CERTIFICATIONS</h3>
+                <p><strong>Google Digital Skills for Africa</strong></p>
+                <p>Fundamentals of digital marketing-(May 2019)</p><br>
+                <h3>&nbsp;HOBBIES</h3>
+                <p class="justify">Reading, meeting new people, learning new things about world culture as well as African cultures, engaging in discussions on social issues, religion, gender equality and feminism.</p><br>
+                <h3>&nbsp;REFEREES</h3>
+                <p>Available on request</p>
+            </article>
+        <section class="bottom"></section>
+        <script>
+           
+            function validateForm()
+            {
+                if (document.querySelector("#name").value.length < 4)
+                {
+                    window.alert("Name is less than 4 characters!");
+                    return false;
+                }
+                if (document.querySelector("#message").value.length < 20)
+                {
+                    window.alert("Message must be at least 20 characters!");
+                    return false;
+            }
+            }
+        </script>
+    </body>
+</html>
+
+<?php
+
+if(isset($_POST['name']) && isset($_POST['email'])  && isset($_POST['message'])) {
+   
+$fp = fopen('contactform.txt', "a");
+$savestring = $_POST['name'] . "\n" . $_POST['email'] .  "\n" . $_POST['message']."\n";
+fwrite($fp, $savestring);
+fclose($fp);
+}
+     
+
+//echo "<script type= 'text/javascript'>window.alert('Your message has been sent sucessfully!')</script>";
+//echo "<script type='text/javascript'>document.location = 'index.html'</script>";
+?>
